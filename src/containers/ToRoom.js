@@ -23,7 +23,7 @@ const ToRoom = () => {
     >
       <Box>Tên đăng nhập là: {state.username}</Box>
 
-      <Box>Pass là: {state.password}</Box>
+      {/* <Box>Pass là: {state.password}</Box> */}
       <Button
         type="submit"
         color="secondary"

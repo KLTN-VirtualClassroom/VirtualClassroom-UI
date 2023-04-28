@@ -13,7 +13,7 @@ const CallFrame = (props) => {
 
   useEffect(() => {
     async function getAuth() {
-      await axios.post("http://localhost:3030/getInfor", account);
+      await axios.post(`${process.env.REACT_APP_SERVER_PATH}/getInfor`, account);
     }
 
     getAuth();
@@ -25,9 +25,9 @@ const CallFrame = (props) => {
   }, [authToken]);
 
   return (
-    <div style={{ height: "93vh" }}>
+    <div style={{ height: "100vh" }}>
         <iframe
-          src="http://localhost:4200"
+          src={`${process.env.REACT_APP_CLASS_PATH}`}
           title="chatframe"
           height={"100%"}
           width="100%"
