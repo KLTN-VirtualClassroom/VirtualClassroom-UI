@@ -25,14 +25,14 @@ const CallFrame = (props) => {
   }, [authToken]);
 
   return (
-    <div style={{ height: "100vh" }}>
+    // <div style={{ height: "95vh" }}>
         <iframe
           src={`${process.env.REACT_APP_CLASS_PATH}`}
           title="chatframe"
-          height={"100%"}
-          width="100%"
+          frameBorder={0}
+          style={{overflow: "hidden", height: '100vh', width: "100%"}}
         ></iframe>
-      </div>
+      // </div>
   )
 };
 export default CallFrame;
