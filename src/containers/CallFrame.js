@@ -30,7 +30,7 @@ const CallFrame = (props) => {
           src={`${process.env.REACT_APP_CLASS_PATH}`}
           title="chatframe"
           frameBorder={0}
-          style={{overflow: "hidden", height: '100vh', width: "100%"}}
+          style={{position: "absolute", top: "0", left: "0", border: "none", height: '100vh', width: "100%"}}
         ></iframe>
       // </div>
   )
