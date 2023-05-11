@@ -29,6 +29,7 @@ const CallFrame = (props) => {
         <iframe
           src={`${process.env.REACT_APP_CLASS_PATH}`}
           title="chatframe"
+          allow="camera; microphone; fullscreen; display-capture; autoplay"
           frameBorder={0}
           style={{position: "absolute", top: "0", left: "0", border: "none", height: '100vh', width: "100%"}}
         ></iframe>
