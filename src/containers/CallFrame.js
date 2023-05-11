@@ -4,9 +4,12 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 const CallFrame = (props) => {
   const { state } = useLocation();
+
   const account = {
     username: state.username,
-    password: state.password
+    password: state.password,
+    roomId: "English",
+    role: "teacher"
   }
 
   const [authToken, setauthToken] = useState("");
