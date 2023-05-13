@@ -8,6 +8,7 @@ const CallFrame = (props) => {
   const account = {
     username: state.username,
     password: state.password,
+    // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
     roomId: "English",
     role: "teacher"
   }
@@ -23,7 +24,6 @@ const CallFrame = (props) => {
     //localStorage.clear();
     const status = "done";
     setauthToken(status);
-    console.log("Token:");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [authToken]);
 
