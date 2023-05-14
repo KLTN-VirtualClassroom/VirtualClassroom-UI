@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 import axios from "axios";
@@ -10,33 +10,49 @@ const CallFrame = (props) => {
     password: state.password,
     // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
     roomId: "English",
-    role: "teacher"
-  }
+    role: "teacher",
+  };
+
+  const iFrameRef = useRef(null);
 
   const [authToken, setauthToken] = useState("");
 
-  useEffect(() => {
-    async function getAuth() {
-      await axios.post(`${process.env.REACT_APP_SERVER_PATH}/getInfor`, account);
-    }
-
-    getAuth();
-    //localStorage.clear();
-    const status = "done";
-    setauthToken(status);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [authToken]);
+  // useEffect(() => {
+  //   let authUser = {};
+  //   async function getAuth() {
+  //     await axios
+  //       .post("http://localhost:3030/getInfor", account)
+  //       .then(function (response) {
+  //         authUser = response.data;
+  //         //console.log(response.data);
+  //       });
+  //     // await axios.post('https://servervirtual.kltnvirtualclassroom.online/getInfor', account);
+  //   }
+  //   getAuth();
+   
+  //   const status = "done";
+  //   setauthToken(status);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   return (
     // <div style={{ height: "95vh" }}>
-        <iframe
-          src={`${process.env.REACT_APP_CLASS_PATH}`}
-          title="chatframe"
-          allow="camera; microphone; fullscreen; display-capture; autoplay"
-          frameBorder={0}
-          style={{position: "absolute", top: "0", left: "0", border: "none", height: '100vh', width: "100%"}}
-        ></iframe>
-      // </div>
-  )
+    <iframe
+      src={`${process.env.REACT_APP_CLASS_PATH}?username=${account.username}&password=${account.password}&roomId=${account.roomId}&role=${account.role}`}
+      ref={iFrameRef}
+      title="chatframe"
+      allow="camera; microphone; fullscreen; display-capture; autoplay"
+      frameBorder={0}
+      style={{
+        position: "absolute",
+        top: "0",
+        left: "0",
+        border: "none",
+        height: "100vh",
+        width: "100%",
+      }}
+    ></iframe>
+    // </div>
+  );
 };
 export default CallFrame;
