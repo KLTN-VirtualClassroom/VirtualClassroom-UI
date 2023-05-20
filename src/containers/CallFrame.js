@@ -39,7 +39,7 @@ const CallFrame = (props) => {
   return (
     // <div style={{ height: "95vh" }}>
     <iframe
-      src={`${process.env.REACT_APP_CLASS_PATH}?username=${account.username}&password=${account.password}&roomId=${account.roomId}&role=${account.role}`}
+      src={`${process.env.REACT_APP_CLASS_PATH}?username=${account.username}&password=${account.password}&roomId=${account.roomId}&role=${account.role}&email=${account.email}`}
       ref={iFrameRef}
       title="chatframe"
       allow="camera; microphone; fullscreen; display-capture; autoplay"
