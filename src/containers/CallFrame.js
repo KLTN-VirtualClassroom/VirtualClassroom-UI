@@ -11,7 +11,7 @@ const CallFrame = (props) => {
     // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
     roomId: "English",
     role: "teacher",
-    email: "helloworld@gmail.com"
+    email: "kltnvirtualclass@gmail.com"
   };
 
   const iFrameRef = useRef(null);
