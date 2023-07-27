@@ -4,19 +4,41 @@ import { useLocation } from "react-router-dom";
 import axios from "axios";
 const CallFrame = (props) => {
   const { state } = useLocation();
-
-  const account = {
-    username: state.username,
-    password: state.password,
-    // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
-    roomId: "English",
-    role: "teacher",
-    email: "kltnvirtualclass@gmail.com"
-  };
-
+  let account = {};
+  // account = {
+  //   username: state.username,
+  //   password: state.password,
+  //   // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
+  //   roomId: "English",
+  //   role: "teacher",
+  //   email: "kltnvirtualclass@gmail.com",
+  // };
+  if (state.username === "nghianguyen"){
+    account = {
+      username: state.username,
+      password: state.password,
+      // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
+      roomId: "English",
+      role: "teacher",
+      email: "kltnvirtualclass113@gmail.com",
+    };
+  }
+  else{
+    account = {
+      username: state.username,
+      password: state.password,
+      // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
+      roomId: "English",
+      role: "student",
+      email: "kltnvirtualclass1222@gmail.com",
+    };
+  }
   const iFrameRef = useRef(null);
+  console.log(account)
 
-  const [authToken, setauthToken] = useState("");
+  const handleCloseIframe = () => {
+    iFrameRef.current.contentWindow.postMessage("close", "*");
+  };
 
   // useEffect(() => {
   //   let authUser = {};
@@ -30,14 +52,13 @@ const CallFrame = (props) => {
   //     // await axios.post('https://servervirtual.kltnvirtualclassroom.online/getInfor', account);
   //   }
   //   getAuth();
-   
+
   //   const status = "done";
   //   setauthToken(status);
   //   // eslint-disable-next-line react-hooks/exhaustive-deps
   // }, []);
 
   return (
-    // <div style={{ height: "95vh" }}>
     <iframe
       src={`${process.env.REACT_APP_CLASS_PATH}?username=${account.username}&password=${account.password}&roomId=${account.roomId}&role=${account.role}&email=${account.email}`}
       ref={iFrameRef}
