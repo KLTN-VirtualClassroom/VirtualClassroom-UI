@@ -20,7 +20,7 @@ const CallFrame = (props) => {
       // roomId: Math.floor(Math.random() * (2 - 1 + 1)) +1,
       roomId: "English",
       role: "teacher",
-      email: "kltnvirtualclass113@gmail.com",
+      email: "hieunghia3107@gmail.com",
     };
   }
   else{
